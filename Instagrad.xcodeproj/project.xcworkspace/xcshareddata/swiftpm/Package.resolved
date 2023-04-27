@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "filepicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/markrenaud/FilePicker",
+      "state" : {
+        "branch" : "main",
+        "revision" : "720f8cb5ca0c0efc982ed381afc84ba3e8b3214e"
+      }
+    },
+    {
+      "identity" : "swiftcsv",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftcsv/SwiftCSV",
+      "state" : {
+        "branch" : "master",
+        "revision" : "96fa14b92e88e0befdbc8bc31c7c2c9594a30060"
+      }
+    }
+  ],
+  "version" : 2
+}

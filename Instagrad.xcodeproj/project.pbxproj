@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		637F78F729F7F1F1009A1400 /* FilteredTagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F78F629F7F1F1009A1400 /* FilteredTagger.swift */; };
+		63FCD2BC29F6770A00AB0AF6 /* InstagradApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD2BB29F6770A00AB0AF6 /* InstagradApp.swift */; };
+		63FCD2BE29F6770A00AB0AF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD2BD29F6770A00AB0AF6 /* ContentView.swift */; };
+		63FCD2C029F6770A00AB0AF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63FCD2BF29F6770A00AB0AF6 /* Assets.xcassets */; };
+		63FCD2C329F6770A00AB0AF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63FCD2C229F6770A00AB0AF6 /* Preview Assets.xcassets */; };
+		63FCD2CC29F6779E00AB0AF6 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 63FCD2CB29F6779E00AB0AF6 /* SwiftCSV */; };
+		63FCD2CF29F677AA00AB0AF6 /* FilePicker in Frameworks */ = {isa = PBXBuildFile; productRef = 63FCD2CE29F677AA00AB0AF6 /* FilePicker */; };
+		63FCD2D129F677EA00AB0AF6 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD2D029F677E900AB0AF6 /* Logger.swift */; };
+		63FCD2D329F677F300AB0AF6 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD2D229F677F300AB0AF6 /* Tagger.swift */; };
+		63FCD2D629F67CFC00AB0AF6 /* Instagrad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD2D429F67CFC00AB0AF6 /* Instagrad.xcdatamodeld */; };
+		63FCD2D829F67E2700AB0AF6 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD2D729F67E2700AB0AF6 /* DataController.swift */; };
+		63FCD2DB29F6D08C00AB0AF6 /* Student+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD2D929F6D08C00AB0AF6 /* Student+CoreDataClass.swift */; };
+		63FCD2DC29F6D08C00AB0AF6 /* Student+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD2DA29F6D08C00AB0AF6 /* Student+CoreDataProperties.swift */; };
+		63FCD2DE29F6D15300AB0AF6 /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD2DD29F6D15300AB0AF6 /* FilteredList.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		637F78F629F7F1F1009A1400 /* FilteredTagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredTagger.swift; sourceTree = "<group>"; };
+		63FCD2B829F6770A00AB0AF6 /* Instagrad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63FCD2BB29F6770A00AB0AF6 /* InstagradApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagradApp.swift; sourceTree = "<group>"; };
+		63FCD2BD29F6770A00AB0AF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		63FCD2BF29F6770A00AB0AF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		63FCD2C229F6770A00AB0AF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		63FCD2C429F6770A00AB0AF6 /* Instagrad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Instagrad.entitlements; sourceTree = "<group>"; };
+		63FCD2D029F677E900AB0AF6 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		63FCD2D229F677F300AB0AF6 /* Tagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tagger.swift; sourceTree = "<group>"; };
+		63FCD2D529F67CFC00AB0AF6 /* Instagrad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Instagrad.xcdatamodel; sourceTree = "<group>"; };
+		63FCD2D729F67E2700AB0AF6 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		63FCD2D929F6D08C00AB0AF6 /* Student+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Student+CoreDataClass.swift"; sourceTree = "<group>"; };
+		63FCD2DA29F6D08C00AB0AF6 /* Student+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Student+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		63FCD2DD29F6D15300AB0AF6 /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		63FCD2B529F6770A00AB0AF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63FCD2CF29F677AA00AB0AF6 /* FilePicker in Frameworks */,
+				63FCD2CC29F6779E00AB0AF6 /* SwiftCSV in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		63FCD2AF29F6770A00AB0AF6 = {
+			isa = PBXGroup;
+			children = (
+				63FCD2BA29F6770A00AB0AF6 /* Instagrad */,
+				63FCD2B929F6770A00AB0AF6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		63FCD2B929F6770A00AB0AF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63FCD2B829F6770A00AB0AF6 /* Instagrad.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63FCD2BA29F6770A00AB0AF6 /* Instagrad */ = {
+			isa = PBXGroup;
+			children = (
+				63FCD2D929F6D08C00AB0AF6 /* Student+CoreDataClass.swift */,
+				63FCD2DA29F6D08C00AB0AF6 /* Student+CoreDataProperties.swift */,
+				63FCD2BB29F6770A00AB0AF6 /* InstagradApp.swift */,
+				63FCD2BD29F6770A00AB0AF6 /* ContentView.swift */,
+				63FCD2D429F67CFC00AB0AF6 /* Instagrad.xcdatamodeld */,
+				63FCD2D729F67E2700AB0AF6 /* DataController.swift */,
+				63FCD2D029F677E900AB0AF6 /* Logger.swift */,
+				63FCD2DD29F6D15300AB0AF6 /* FilteredList.swift */,
+				637F78F629F7F1F1009A1400 /* FilteredTagger.swift */,
+				63FCD2D229F677F300AB0AF6 /* Tagger.swift */,
+				63FCD2BF29F6770A00AB0AF6 /* Assets.xcassets */,
+				63FCD2C429F6770A00AB0AF6 /* Instagrad.entitlements */,
+				63FCD2C129F6770A00AB0AF6 /* Preview Content */,
+			);
+			path = Instagrad;
+			sourceTree = "<group>";
+		};
+		63FCD2C129F6770A00AB0AF6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				63FCD2C229F6770A00AB0AF6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		63FCD2B729F6770A00AB0AF6 /* Instagrad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63FCD2C729F6770A00AB0AF6 /* Build configuration list for PBXNativeTarget "Instagrad" */;
+			buildPhases = (
+				63FCD2B429F6770A00AB0AF6 /* Sources */,
+				63FCD2B529F6770A00AB0AF6 /* Frameworks */,
+				63FCD2B629F6770A00AB0AF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Instagrad;
+			packageProductDependencies = (
+				63FCD2CB29F6779E00AB0AF6 /* SwiftCSV */,
+				63FCD2CE29F677AA00AB0AF6 /* FilePicker */,
+			);
+			productName = Instagrad;
+			productReference = 63FCD2B829F6770A00AB0AF6 /* Instagrad.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		63FCD2B029F6770A00AB0AF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					63FCD2B729F6770A00AB0AF6 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 63FCD2B329F6770A00AB0AF6 /* Build configuration list for PBXProject "Instagrad" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 63FCD2AF29F6770A00AB0AF6;
+			packageReferences = (
+				63FCD2CA29F6779E00AB0AF6 /* XCRemoteSwiftPackageReference "SwiftCSV" */,
+				63FCD2CD29F677AA00AB0AF6 /* XCRemoteSwiftPackageReference "FilePicker" */,
+			);
+			productRefGroup = 63FCD2B929F6770A00AB0AF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63FCD2B729F6770A00AB0AF6 /* Instagrad */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		63FCD2B629F6770A00AB0AF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63FCD2C329F6770A00AB0AF6 /* Preview Assets.xcassets in Resources */,
+				63FCD2C029F6770A00AB0AF6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63FCD2B429F6770A00AB0AF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63FCD2BE29F6770A00AB0AF6 /* ContentView.swift in Sources */,
+				63FCD2D829F67E2700AB0AF6 /* DataController.swift in Sources */,
+				63FCD2DE29F6D15300AB0AF6 /* FilteredList.swift in Sources */,
+				63FCD2DC29F6D08C00AB0AF6 /* Student+CoreDataProperties.swift in Sources */,
+				63FCD2D629F67CFC00AB0AF6 /* Instagrad.xcdatamodeld in Sources */,
+				63FCD2DB29F6D08C00AB0AF6 /* Student+CoreDataClass.swift in Sources */,
+				63FCD2D329F677F300AB0AF6 /* Tagger.swift in Sources */,
+				63FCD2D129F677EA00AB0AF6 /* Logger.swift in Sources */,
+				637F78F729F7F1F1009A1400 /* FilteredTagger.swift in Sources */,
+				63FCD2BC29F6770A00AB0AF6 /* InstagradApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		63FCD2C529F6770A00AB0AF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		63FCD2C629F6770A00AB0AF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		63FCD2C829F6770A00AB0AF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Instagrad/Instagrad.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Instagrad/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swanseamedia.Instagrad;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		63FCD2C929F6770A00AB0AF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Instagrad/Instagrad.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Instagrad/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swanseamedia.Instagrad;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		63FCD2B329F6770A00AB0AF6 /* Build configuration list for PBXProject "Instagrad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63FCD2C529F6770A00AB0AF6 /* Debug */,
+				63FCD2C629F6770A00AB0AF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63FCD2C729F6770A00AB0AF6 /* Build configuration list for PBXNativeTarget "Instagrad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63FCD2C829F6770A00AB0AF6 /* Debug */,
+				63FCD2C929F6770A00AB0AF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		63FCD2CA29F6779E00AB0AF6 /* XCRemoteSwiftPackageReference "SwiftCSV" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftcsv/SwiftCSV";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		63FCD2CD29F677AA00AB0AF6 /* XCRemoteSwiftPackageReference "FilePicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markrenaud/FilePicker";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		63FCD2CB29F6779E00AB0AF6 /* SwiftCSV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63FCD2CA29F6779E00AB0AF6 /* XCRemoteSwiftPackageReference "SwiftCSV" */;
+			productName = SwiftCSV;
+		};
+		63FCD2CE29F677AA00AB0AF6 /* FilePicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63FCD2CD29F677AA00AB0AF6 /* XCRemoteSwiftPackageReference "FilePicker" */;
+			productName = FilePicker;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		63FCD2D429F67CFC00AB0AF6 /* Instagrad.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				63FCD2D529F67CFC00AB0AF6 /* Instagrad.xcdatamodel */,
+			);
+			currentVersion = 63FCD2D529F67CFC00AB0AF6 /* Instagrad.xcdatamodel */;
+			path = Instagrad.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 63FCD2B029F6770A00AB0AF6 /* Project object */;
+}
