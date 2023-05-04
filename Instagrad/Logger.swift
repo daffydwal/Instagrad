@@ -19,7 +19,7 @@ struct Logger: View{
             Text("Please select a ceremony")
         } else {
             
-            FilteredList(filter: (selectedCeremony?.code ?? "Unknown"))
+            FilteredList(filter: (selectedCeremony?.code ?? "Unknown"), rootPath: "/Users/david/Documents", fileName: ((selectedCeremony?.code ?? "Unknown") + ".m4a"))
             
         }
     }

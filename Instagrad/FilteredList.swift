@@ -12,13 +12,18 @@ struct FilteredList: View {
     @Environment(\.managedObjectContext) var moc
     @State var selectedStudent: Student?
     @State var underway = false
+    @State var paused = false
     @FocusState var listFocussed
+    @State var timer: Timer?
     @State private var studentSwitchTime = ""
+    @State private var studentSwitchTimeRecording = 0.0
     @State private var studentSwitchTimeFriendly = ""
     @State private var currentTime = ""
     @State private var whereWereWe = 0
     @State private var unknownCount = 1
     @State private var unknownMode = false
+    @State private var recordDuration = "Ready to record"
+    var audioRecorder: AudioControl
 
     
     var body: some View{
@@ -82,35 +87,73 @@ struct FilteredList: View {
             Spacer()
             
             VStack{
+                Spacer()
                 if(!underway){
                     Text("Press enter to begin!")
                         .font(.largeTitle)
                 }else{
-                    Text(selectedStudent?.name ?? "No name")
-                        .font(.system(size: 45))
-                    Spacer()
-                        .frame(height: 40)
-                    Image(systemName: "stopwatch")
-                        .font(.system(size: 35))
-                        .padding()
-                    Text(studentSwitchTimeFriendly)
-                        .font(.title)
-                    Image(systemName: "arrow.down.circle")
-                        .font(.system(size: 35))
-                        .padding()
-                    Text(currentTime)
-                        .font(.title)
-                        .onAppear{
-                            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                                let formatter = DateFormatter()
-                                formatter.dateFormat = "HH:mm:ss"
-                                self.currentTime = formatter.string(from: Date())
+                    VStack{
+                        Text(selectedStudent?.name ?? "No name")
+                            .font(.system(size: 45))
+                        Spacer()
+                            .frame(height: 40)
+                        Image(systemName: "stopwatch")
+                            .font(.system(size: 35))
+                            .padding()
+                        Text(studentSwitchTimeFriendly)
+                            .font(.title)
+                        Image(systemName: "arrow.down.circle")
+                            .font(.system(size: 35))
+                            .padding()
+                        Text(currentTime)
+                            .font(.title)
+                            .onAppear{
+                                let nowTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                                    let formatter = DateFormatter()
+                                    formatter.dateFormat = "HH:mm:ss"
+                                    self.currentTime = formatter.string(from: Date())
+                                }
+                                nowTimer.fire()
                             }
-                            timer.fire()
-                        }
+                    }
                         
                 }
-                    
+                Spacer()
+                HStack{
+                    if(underway){
+                        if(!paused){
+                            Button("Pause"){
+                                pauseRecording()
+                                paused = true
+                            }
+                        } else {
+                            Button("Resume"){
+                                startRecording()
+                                setStudentSwitchTime()
+                                paused = false
+                            }
+                        }
+                        Button("Finish"){
+                            stopRecording()
+                        }
+                    }
+                    Spacer()
+                    if(!underway){
+                        Image(systemName: "checkmark.circle")
+                            .font(.largeTitle)
+                            .foregroundColor(.green)
+                    }
+                    if(underway && !paused){
+                        Image(systemName: "record.circle.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(.red)
+                    }
+                    if(paused){
+                        Image(systemName: "pause.circle")
+                            .font(.largeTitle)
+                    }
+                    Text(recordDuration)
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
@@ -122,11 +165,15 @@ struct FilteredList: View {
     
     func logTimes(){
         if(underway){
+            print("recording time on: \(studentSwitchTimeRecording)")
             selectedStudent?.timeOn = Int32(studentSwitchTime) ?? 0
             selectedStudent?.timeOnFriendly = studentSwitchTimeFriendly
+            selectedStudent?.audioTimeOn = studentSwitchTimeRecording
             setStudentSwitchTime()
+            print("recording time off: \(studentSwitchTimeRecording)")
             selectedStudent?.timeOff = Int32(studentSwitchTime) ?? 0
             selectedStudent?.timeOffFriendly = studentSwitchTimeFriendly
+            selectedStudent?.audioTimeOff = studentSwitchTimeRecording
             let selectedStudentInt = selectedStudent?.index ?? 0
             
             if(unknownMode){
@@ -141,7 +188,9 @@ struct FilteredList: View {
             try? moc.save()
         } else {
             setStudentSwitchTime()
+            studentSwitchTimeRecording = 0
             selectedStudent = fetchRequest.first
+            startRecording()
             underway = true
             listFocussed = true
         }
@@ -159,13 +208,14 @@ struct FilteredList: View {
         
         studentSwitchTime = time
         studentSwitchTimeFriendly = timeFiendly
+        studentSwitchTimeRecording = audioRecorder.getTime() - 3
     }
     
     func newUnknown(){
         whereWereWe = (Int(selectedStudent?.index ?? 0))
         
         let newStudent = Student(context: moc)
-        newStudent.name = ("Unknown_" + String(unknownCount))
+        newStudent.name = ("Unknown" + String(unknownCount))
         newStudent.studNum = ("1111111" + String(unknownCount))
         newStudent.ceremonyCode = selectedStudent?.ceremonyCode ?? "Not set"
         newStudent.index = Int16(fetchRequest.count + unknownCount)
@@ -178,10 +228,52 @@ struct FilteredList: View {
         unknownCount += 1
     }
     
+    func getFriendlyTime(){
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.zeroFormattingBehavior = .pad
+        let friendlyTime = formatter.string(from: audioRecorder.getTime())
+        recordDuration = friendlyTime ?? "00:00:00"
+//        print(friendlyTime ?? "Something not right with getting friendly time!")
+    }
+    
+    func startRecording(){
+        audioRecorder.startRecord()
+        if(!underway){
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true){ timer in
+                getFriendlyTime()
+            }
+        }
+//        isRecording = true
+    }
+    
+    func stopRecording(){
+        timer!.invalidate()
+        audioRecorder.stopRecord()
+//        isRecording = false
+    }
+    
+    func pauseRecording(){
+        audioRecorder.pauseRecord()
+//        isRecording = false
+    }
+    
+//    func pauseCeremony(){
+//        paused = true
+//        pauseRecording()
+//    }
+//
+//    func endCeremony(){
+//
+//    }
     
     
-    init(filter: String){
+    
+    init(filter: String, rootPath: String, fileName: String){
         _fetchRequest = FetchRequest<Student>(sortDescriptors: [SortDescriptor(\.order)], predicate: NSPredicate(format: "ceremonyCode BEGINSWITH %@", filter))
+        let fullPathString = rootPath + "/" + fileName
+        let fullPathURL = URL(filePath: fullPathString)
+        audioRecorder = AudioControl(path: fullPathURL)
     }
 }
 

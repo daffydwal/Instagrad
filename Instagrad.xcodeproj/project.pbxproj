@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		637F78F729F7F1F1009A1400 /* FilteredTagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F78F629F7F1F1009A1400 /* FilteredTagger.swift */; };
+		637FAF2D2A03EB63003BBF3F /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FAF2C2A03EB63003BBF3F /* AudioRecorder.swift */; };
 		63FCD2BC29F6770A00AB0AF6 /* InstagradApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD2BB29F6770A00AB0AF6 /* InstagradApp.swift */; };
 		63FCD2BE29F6770A00AB0AF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD2BD29F6770A00AB0AF6 /* ContentView.swift */; };
 		63FCD2C029F6770A00AB0AF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63FCD2BF29F6770A00AB0AF6 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		637F78F629F7F1F1009A1400 /* FilteredTagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredTagger.swift; sourceTree = "<group>"; };
+		637FAF2C2A03EB63003BBF3F /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		63FCD2B829F6770A00AB0AF6 /* Instagrad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FCD2BB29F6770A00AB0AF6 /* InstagradApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagradApp.swift; sourceTree = "<group>"; };
 		63FCD2BD29F6770A00AB0AF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				63FCD2D729F67E2700AB0AF6 /* DataController.swift */,
 				63FCD2D029F677E900AB0AF6 /* Logger.swift */,
 				63FCD2DD29F6D15300AB0AF6 /* FilteredList.swift */,
+				637FAF2C2A03EB63003BBF3F /* AudioRecorder.swift */,
 				637F78F629F7F1F1009A1400 /* FilteredTagger.swift */,
 				63FCD2D229F677F300AB0AF6 /* Tagger.swift */,
 				63FCD2BF29F6770A00AB0AF6 /* Assets.xcassets */,
@@ -180,6 +183,7 @@
 				63FCD2DE29F6D15300AB0AF6 /* FilteredList.swift in Sources */,
 				63FCD2DC29F6D08C00AB0AF6 /* Student+CoreDataProperties.swift in Sources */,
 				63FCD2D629F67CFC00AB0AF6 /* Instagrad.xcdatamodeld in Sources */,
+				637FAF2D2A03EB63003BBF3F /* AudioRecorder.swift in Sources */,
 				63FCD2DB29F6D08C00AB0AF6 /* Student+CoreDataClass.swift in Sources */,
 				63FCD2D329F677F300AB0AF6 /* Tagger.swift in Sources */,
 				63FCD2D129F677EA00AB0AF6 /* Logger.swift in Sources */,
@@ -319,6 +323,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "for recording ceremony audio";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -347,6 +352,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "for recording ceremony audio";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

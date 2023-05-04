@@ -16,6 +16,7 @@ struct ImageFile: Identifiable {
     var cereCode: String?
     var studName: String?
     var studNum: String?
+    let audioOn: Int
 }
 
 struct FilteredTagger: View {
@@ -104,7 +105,7 @@ struct FilteredTagger: View {
             }
             
             for photo in filteredPhotos {
-                let taggedPhoto = ImageFile(id: UUID(), url: photo.url, createdTime: photo.createdTime, fileName: photo.fileName, cereCode: student.ceremonyCode, studName: student.name, studNum: student.studNum)
+                let taggedPhoto = ImageFile(id: UUID(), url: photo.url, createdTime: photo.createdTime, fileName: photo.fileName, cereCode: student.ceremonyCode, studName: student.name, studNum: student.studNum, audioOn: Int(student.audioTimeOn))
                 allTaggedPhotos.append(taggedPhoto)
             }
 
@@ -121,7 +122,8 @@ struct FilteredTagger: View {
             let studName = String(photo.studName ?? "Unknown")
             let studNum = String(photo.studNum ?? "Unknown")
             let cereCode = String(photo.cereCode ?? "Unknown")
-            let newPath = (currentPath.replacingOccurrences(of: "IMG_", with: "IMG") + "_" + studName + "_" + studNum + "_" + cereCode + ".JPG")
+            let audioOn = String(photo.audioOn)
+            let newPath = (currentPath.replacingOccurrences(of: "IMG_", with: "IMG") + "_" + studName + "_" + studNum + "_" + cereCode + "_" + audioOn + ".JPG")
             
             do{ try fileManager.moveItem(atPath: currentPath, toPath: newPath) } catch let error {print(error.localizedDescription)}
             
@@ -136,7 +138,7 @@ struct FilteredTagger: View {
         let newName = url.lastPathComponent
         let newTime = getCreatedTime(fromURL: url)
         
-        let newImage = ImageFile(id: UUID(), url: url, createdTime: (Int32(newTime) ?? 0), fileName: newName, cereCode: "")
+        let newImage = ImageFile(id: UUID(), url: url, createdTime: (Int32(newTime) ?? 0), fileName: newName, cereCode: "", audioOn: 0)
         
         allPhotos.append(newImage)
     }

@@ -27,6 +27,8 @@ extension Student {
     @NSManaged public var timeOn: Int32
     @NSManaged public var timeOnFriendly: String?
     @NSManaged public var index: Int16
+    @NSManaged public var audioTimeOn: Double
+    @NSManaged public var audioTimeOff: Double
     
     var wrappedceremonyCode: String {
         ceremonyCode ?? "Unknown"

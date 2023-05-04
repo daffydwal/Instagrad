@@ -25,18 +25,24 @@ struct ContentView: View {
     var body: some View {
         
         NavigationSplitView{
-            List{
-                NavigationLink{
-                    Logger(selectedCeremony: $selectedCeremony)
-                } label: {
-                    Text("Logger")
-                }
-                
-                NavigationLink{
-                    Tagger(selectedCeremony: $selectedCeremony)
-                } label: {
-                    Text("Tagger")
-                    
+            VStack{
+                if(selectedCeremony == nil){
+                    Text("Select a ceremony")
+                } else {
+                    List{
+                        NavigationLink{
+                            Logger(selectedCeremony: $selectedCeremony)
+                        } label: {
+                            Text("Logger")
+                        }
+                        
+                        NavigationLink{
+                            Tagger(selectedCeremony: $selectedCeremony)
+                        } label: {
+                            Text("Tagger")
+                            
+                        }
+                    }
                 }
             }
                 
