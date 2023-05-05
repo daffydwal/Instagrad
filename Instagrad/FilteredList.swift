@@ -13,6 +13,8 @@ struct FilteredList: View {
     @State var selectedStudent: Student?
     @State var underway = false
     @State var paused = false
+    @State var stopped = false
+    @State var rememberFinish = false
     @FocusState var listFocussed
     @State var timer: Timer?
     @State private var studentSwitchTime = ""
@@ -28,135 +30,162 @@ struct FilteredList: View {
     
     var body: some View{
         
-        HStack{
-            ScrollViewReader{ scrollViewReader in
-                    
-                ZStack{
-                    Button("Log"){
-                        logTimes()
-                        withAnimation{
-                            if let selectedStudent = selectedStudent{
-                                scrollViewReader.scrollTo(selectedStudent, anchor: .leading)
-                            }
-                        }
-                    }
-                    .keyboardShortcut(.return, modifiers: [])
-                    Button("Unknown"){
-                        if(!unknownMode && underway){
-                            newUnknown()
-                            unknownMode = true
-                        }
-                    }
-                    .keyboardShortcut("u", modifiers: [])
-                    
-                    List(fetchRequest, id: \.self, selection: $selectedStudent) {student in
-                        VStack(alignment: .leading){
-                                HStack{
-                                    Text(String(student.index) + ". ")
-                                    Text(student.name ?? "Unknown")
-                                        .font(.title2)
-                                }
-                                HStack{
-                                    Spacer()
-                                        .frame(width: 40)
-                                    Text(student.timeOnFriendly ?? "")
-                                    if(student.timeOffFriendly != nil){Text(" -> ")}
-                                    Text(student.timeOffFriendly ?? "")
+        ZStack{
+            HStack{
+                ScrollViewReader{ scrollViewReader in
+                        
+                    ZStack{
+                        Button("Log"){
+                            logTimes()
+                            withAnimation{
+                                if let selectedStudent = selectedStudent{
+                                    scrollViewReader.scrollTo(selectedStudent, anchor: .leading)
                                 }
                             }
                         }
-                        .disabled(!underway)
-                        .focused($listFocussed)
-                        .scrollIndicators(.never)
-                    
+                        .keyboardShortcut(.return, modifiers: [])
+                        Button("Unknown"){
+                            if(!unknownMode && underway){
+                                newUnknown()
+                                unknownMode = true
+                            }
+                        }
+                        .keyboardShortcut("u", modifiers: [])
+                        
+                        List(fetchRequest, id: \.self, selection: $selectedStudent) {student in
+                            VStack(alignment: .leading){
+                                    HStack{
+                                        Text(String(student.index) + ". ")
+                                        Text(student.name ?? "Unknown")
+                                            .font(.title2)
+                                    }
+                                    HStack{
+                                        Spacer()
+                                            .frame(width: 40)
+                                        Text(student.timeOnFriendly ?? "")
+                                        if(student.timeOffFriendly != nil){Text(" -> ")}
+                                        Text(student.timeOffFriendly ?? "")
+                                    }
+                                }
+                            }
+                            .disabled(!underway)
+                            .focused($listFocussed)
+                            .scrollIndicators(.never)
+                        
+                        if(!underway){
+                            Text("Press enter to begin!")
+                                .font(.largeTitle)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .background(Color.black.opacity(0.75))
+                        }
+                        
+                        }
+                        .frame(width:450)
+                    }
+                
+                
+                
+                
+                
+                Spacer()
+                
+                VStack{
+                    Spacer()
                     if(!underway){
                         Text("Press enter to begin!")
                             .font(.largeTitle)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .background(Color.black.opacity(0.75))
-                    }
-                    
-                    }
-                    .frame(width:450)
-                }
-            
-            
-            
-            
-            
-            Spacer()
-            
-            VStack{
-                Spacer()
-                if(!underway){
-                    Text("Press enter to begin!")
-                        .font(.largeTitle)
-                }else{
-                    VStack{
-                        Text(selectedStudent?.name ?? "No name")
-                            .font(.system(size: 45))
-                        Spacer()
-                            .frame(height: 40)
-                        Image(systemName: "stopwatch")
-                            .font(.system(size: 35))
-                            .padding()
-                        Text(studentSwitchTimeFriendly)
-                            .font(.title)
-                        Image(systemName: "arrow.down.circle")
-                            .font(.system(size: 35))
-                            .padding()
-                        Text(currentTime)
-                            .font(.title)
-                            .onAppear{
-                                let nowTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                                    let formatter = DateFormatter()
-                                    formatter.dateFormat = "HH:mm:ss"
-                                    self.currentTime = formatter.string(from: Date())
+                    }else{
+                        VStack{
+                            Text(selectedStudent?.name ?? "No name")
+                                .font(.system(size: 45))
+                            Spacer()
+                                .frame(height: 40)
+                            Image(systemName: "stopwatch")
+                                .font(.system(size: 35))
+                                .padding()
+                            Text(studentSwitchTimeFriendly)
+                                .font(.title)
+                            Image(systemName: "arrow.down.circle")
+                                .font(.system(size: 35))
+                                .padding()
+                            Text(currentTime)
+                                .font(.title)
+                                .frame(minWidth: 380)
+                                .onAppear{
+                                    let nowTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                                        let formatter = DateFormatter()
+                                        formatter.dateFormat = "HH:mm:ss"
+                                        self.currentTime = formatter.string(from: Date())
+                                    }
+                                    nowTimer.fire()
                                 }
-                                nowTimer.fire()
-                            }
-                    }
-                        
-                }
-                Spacer()
-                HStack{
-                    if(underway){
-                        if(!paused){
-                            Button("Pause"){
-                                pauseRecording()
-                                paused = true
-                            }
-                        } else {
-                            Button("Resume"){
-                                startRecording()
-                                setStudentSwitchTime()
-                                paused = false
-                            }
                         }
-                        Button("Finish"){
-                            stopRecording()
-                        }
+                            
                     }
                     Spacer()
-                    if(!underway){
-                        Image(systemName: "checkmark.circle")
-                            .font(.largeTitle)
-                            .foregroundColor(.green)
+                    HStack{
+                        if(underway){
+                            if(!paused && !stopped){
+                                Button("Pause"){
+                                    pauseRecording()
+                                    paused = true
+                                }
+                            
+                            }
+                            if(!stopped){
+                                Button("Finish"){
+                                    stopRecording()
+                                }
+                            }
+                        }
+                        if(rememberFinish){
+                            Text("<- Remember to click finish")
+                                .foregroundColor(.red)
+                        }
+                        Spacer()
+                        if(!underway){
+                            Image(systemName: "checkmark.circle")
+                                .font(.largeTitle)
+                                .foregroundColor(.green)
+                        }
+                        if(underway && !paused && !stopped){
+                            Image(systemName: "record.circle.fill")
+                                .font(.largeTitle)
+                                .foregroundColor(.red)
+                        }
+                        if(paused){
+                            Image(systemName: "pause.circle")
+                                .font(.largeTitle)
+                        }
+                        if(stopped){
+                            Image(systemName: "stop.circle")
+                                .font(.largeTitle)
+                        }
+                        Text(recordDuration)
+                            .frame(minWidth: 100)
                     }
-                    if(underway && !paused){
-                        Image(systemName: "record.circle.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.red)
-                    }
-                    if(paused){
-                        Image(systemName: "pause.circle")
-                            .font(.largeTitle)
-                    }
-                    Text(recordDuration)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding()
+            if(paused){
+                VStack{
+                    Image(systemName: "pause.circle")
+                        .font(.system(size: 100))
+                    Text("Ceremony paused")
+                        .font(.largeTitle)
+                    Spacer()
+                        .frame(maxHeight: 40)
+                    Button("Resume"){
+                        startRecording()
+                        setStudentSwitchTime()
+                        paused = false
+                    }
+                    .controlSize(.large)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color(NSColor.windowBackgroundColor).opacity(0.75))
+            }
         }
         .padding()
         
@@ -181,6 +210,7 @@ struct FilteredList: View {
                 unknownMode = false
             } else if (selectedStudentInt >= fetchRequest.count){
                 print("End of list, stopping")
+                rememberFinish = true
             } else {
                 selectedStudent = fetchRequest[Int(selectedStudentInt)]
             }
@@ -234,7 +264,6 @@ struct FilteredList: View {
         formatter.zeroFormattingBehavior = .pad
         let friendlyTime = formatter.string(from: audioRecorder.getTime())
         recordDuration = friendlyTime ?? "00:00:00"
-//        print(friendlyTime ?? "Something not right with getting friendly time!")
     }
     
     func startRecording(){
@@ -244,18 +273,19 @@ struct FilteredList: View {
                 getFriendlyTime()
             }
         }
-//        isRecording = true
+
     }
     
     func stopRecording(){
         timer!.invalidate()
         audioRecorder.stopRecord()
-//        isRecording = false
+        stopped = true
+        rememberFinish = false
     }
     
     func pauseRecording(){
         audioRecorder.pauseRecord()
-//        isRecording = false
+
     }
     
 //    func pauseCeremony(){
