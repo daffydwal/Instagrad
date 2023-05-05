@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		637F78F729F7F1F1009A1400 /* FilteredTagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F78F629F7F1F1009A1400 /* FilteredTagger.swift */; };
 		637FAF2D2A03EB63003BBF3F /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FAF2C2A03EB63003BBF3F /* AudioRecorder.swift */; };
+		63953D222A0535D50016B1A4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63953D212A0535D50016B1A4 /* SettingsView.swift */; };
 		63FCD2BC29F6770A00AB0AF6 /* InstagradApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD2BB29F6770A00AB0AF6 /* InstagradApp.swift */; };
 		63FCD2BE29F6770A00AB0AF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD2BD29F6770A00AB0AF6 /* ContentView.swift */; };
 		63FCD2C029F6770A00AB0AF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63FCD2BF29F6770A00AB0AF6 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		637F78F629F7F1F1009A1400 /* FilteredTagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredTagger.swift; sourceTree = "<group>"; };
 		637FAF2C2A03EB63003BBF3F /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		63953D212A0535D50016B1A4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		63FCD2B829F6770A00AB0AF6 /* Instagrad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FCD2BB29F6770A00AB0AF6 /* InstagradApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagradApp.swift; sourceTree = "<group>"; };
 		63FCD2BD29F6770A00AB0AF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				63FCD2BF29F6770A00AB0AF6 /* Assets.xcassets */,
 				63FCD2C429F6770A00AB0AF6 /* Instagrad.entitlements */,
 				63FCD2C129F6770A00AB0AF6 /* Preview Content */,
+				63953D212A0535D50016B1A4 /* SettingsView.swift */,
 			);
 			path = Instagrad;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				63FCD2DB29F6D08C00AB0AF6 /* Student+CoreDataClass.swift in Sources */,
 				63FCD2D329F677F300AB0AF6 /* Tagger.swift in Sources */,
 				63FCD2D129F677EA00AB0AF6 /* Logger.swift in Sources */,
+				63953D222A0535D50016B1A4 /* SettingsView.swift in Sources */,
 				637F78F729F7F1F1009A1400 /* FilteredTagger.swift in Sources */,
 				63FCD2BC29F6770A00AB0AF6 /* InstagradApp.swift in Sources */,
 			);

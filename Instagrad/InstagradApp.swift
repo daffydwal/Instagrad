@@ -13,9 +13,10 @@ struct InstagradApp: App {
     @StateObject private var dataController = DataController()
     
     var body: some Scene {
-        WindowGroup {
+        Window("Instagrad", id:"main") {
             ContentView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
         }
+        Settings(content: SettingsView.init)
     }
 }

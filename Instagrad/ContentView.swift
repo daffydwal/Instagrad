@@ -17,6 +17,7 @@ struct ContentView: View {
     @FetchRequest(sortDescriptors: []) var students: FetchedResults<Student>
     @State private var selectedCeremony: Ceremony? = nil
     @State private var showingAddCeremony = false
+    @State private var showingDeleteAll = false
     @State private var ctaName = ""
     @State private var ctaCode = ""
     @State private var CSVURL = URL(string: "")
@@ -45,12 +46,18 @@ struct ContentView: View {
                     }
                 }
             }
-                
+            
             Spacer()
-                
+            
             VStack{
                 HStack{
                     Text("Ceremony:")
+                    Button(""){
+                        showingDeleteAll = true
+                    }
+                    .frame(width: 0, height: 0)
+                    .opacity(0)
+                    .keyboardShortcut("n", modifiers: [.control, .option, .command])
                     Spacer()
                     Button{
                         showingAddCeremony.toggle()
@@ -58,6 +65,19 @@ struct ContentView: View {
                         Image(systemName: "plus")
                     }
                 }
+                .alert("Are you quite sure?!?!", isPresented: $showingDeleteAll){
+                    Button("Fire the nuclear weapons!"){
+                        deleteAllCeremonies()
+                        showingDeleteAll = false
+                    }
+                    Button("No, thank you"){
+                        showingDeleteAll = false
+                    }
+                } message: {
+                    Text("This is the nuclear option. Absolutely everything will be deleted from this app. All ceremonies, students, and timing information will be gone forever.")
+                }
+            
+                
 
                 Picker(selection: $selectedCeremony, label: EmptyView()){
                     ForEach(ceremonies, id: \.self){ceremony in
@@ -94,6 +114,7 @@ struct ContentView: View {
             Image(colorScheme == .dark ? "IG_White" : "IG_Black")
                 .resizable()
                 .scaledToFit()
+                .frame(maxWidth: 450)
                 .padding(80)
         }
 

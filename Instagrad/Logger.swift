@@ -13,13 +13,14 @@ struct Logger: View{
 //    @FetchRequest(sortDescriptors: []) var ceremonies: FetchedResults<Ceremony>
 //    @FetchRequest(sortDescriptors: [SortDescriptor(\.order)]) var students: FetchedResults<Student>
     @Binding var selectedCeremony: Ceremony?
+    @AppStorage("saveRecordingsFolder") var saveRecordingsFolder = "/Users/Shared/Recordings"
     
     var body: some View {
         if selectedCeremony?.name == nil{
             Text("Please select a ceremony")
         } else {
             
-            FilteredList(filter: (selectedCeremony?.code ?? "Unknown"), rootPath: "/Users/david/Documents", fileName: ((selectedCeremony?.code ?? "Unknown") + ".m4a"))
+            FilteredList(filter: (selectedCeremony?.code ?? "Unknown"), rootPath: saveRecordingsFolder, fileName: ((selectedCeremony?.code ?? "Unknown") + ".m4a"))
             
         }
     }
