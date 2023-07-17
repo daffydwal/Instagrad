@@ -123,7 +123,7 @@ struct FilteredTagger: View {
             let studNum = String(photo.studNum ?? "Unknown")
             let cereCode = String(photo.cereCode ?? "Unknown")
             let audioOn = String(photo.audioOn)
-            let newPath = (currentPath.replacingOccurrences(of: "IMG_", with: "IMG") + "_" + studName + "_" + studNum + "_" + cereCode + "_" + audioOn + ".JPG")
+            let newPath = (currentPath.replacingOccurrences(of: "IMG_", with: "IMG") + "_" + studNum + "_" + cereCode + "_" + audioOn + ".JPG")
             
             do{ try fileManager.moveItem(atPath: currentPath, toPath: newPath) } catch let error {print(error.localizedDescription)}
             
